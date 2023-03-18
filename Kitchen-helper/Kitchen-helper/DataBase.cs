@@ -14,10 +14,6 @@ namespace Kitchen_helper
         public DataBase()
         {
             connection = new SQLiteConnection("Data Source=Recipes_book");
-            if(File.Exists("./Recipes_book"))
-            {
-                Debug.WriteLine("TEST");
-            }
         }
         public void openConnention()
         {
