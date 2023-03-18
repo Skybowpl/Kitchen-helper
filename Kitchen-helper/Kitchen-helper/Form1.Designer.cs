@@ -28,12 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            ingredientsList = new CheckedListBox();
+            goNextButton = new Button();
+            SuspendLayout();
+            // 
+            // ingredientsList
+            // 
+            ingredientsList.FormattingEnabled = true;
+            ingredientsList.Location = new Point(12, 12);
+            ingredientsList.Name = "ingredientsList";
+            ingredientsList.Size = new Size(776, 274);
+            ingredientsList.TabIndex = 0;
+            ingredientsList.SelectedIndexChanged += checkedListBox1_SelectedIndexChanged;
+            // 
+            // goNextButton
+            // 
+            goNextButton.Location = new Point(250, 350);
+            goNextButton.Name = "goNextButton";
+            goNextButton.Size = new Size(269, 74);
+            goNextButton.TabIndex = 1;
+            goNextButton.Text = "Next";
+            goNextButton.UseVisualStyleBackColor = true;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(goNextButton);
+            Controls.Add(ingredientsList);
+            Name = "Form1";
+            Text = "Form1";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private CheckedListBox ingredientsList;
+        private Button goNextButton;
     }
 }
