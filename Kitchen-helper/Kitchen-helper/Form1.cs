@@ -43,7 +43,6 @@ namespace Kitchen_helper
             }
             Form2 form2 = new Form2(usedIngredients);
             form2.ShowDialog();
-            this.Hide();
 
         }
     }

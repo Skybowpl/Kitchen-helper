@@ -15,7 +15,11 @@ namespace Kitchen_helper
         public Form2(List<String> usedIngredients)
         {
             InitializeComponent();
-            textBox1.Text += usedIngredients;
+            foreach (object itemChecked in usedIngredients)
+            {
+                richTextBox1.Text += itemChecked.ToString();
+                richTextBox1.Text += "\n";
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
