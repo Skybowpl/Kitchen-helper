@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Data.SQLite;
 using System.Xml.Linq;
+using System.Windows.Forms;
 
 namespace Kitchen_helper
 {
@@ -35,6 +36,14 @@ namespace Kitchen_helper
 
         private void goNextButton_Click(object sender, EventArgs e)
         {
+            List<String> usedIngredients = new List<string>();
+            foreach (object itemChecked in ingredientsList.CheckedItems)
+            {
+                usedIngredients.Add(itemChecked.ToString());
+            }
+            Form2 form2 = new Form2(usedIngredients);
+            form2.ShowDialog();
+            this.Hide();
 
         }
     }
