@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Data.SQLite;
+using System.Data.Entity;
 
 namespace Kitchen_helper
 {
@@ -25,9 +26,14 @@ namespace Kitchen_helper
             if (connection.State != System.Data.ConnectionState.Closed)
                 connection.Close();
         }
-        public SQLiteConnection getConnection()
+
+        public SQLiteDataReader readFromDatabase(string column, string table)
         {
-            return connection;
+            SQLiteDataReader reader;
+            SQLiteCommand command = new SQLiteCommand("SELECT " + column + " FROM " + table, connection);
+            reader = command.ExecuteReader();
+            return reader;
+
         }
 
     }

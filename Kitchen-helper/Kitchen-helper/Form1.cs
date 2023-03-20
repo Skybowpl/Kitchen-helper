@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Data.SQLite;
+using System.Xml.Linq;
 
 namespace Kitchen_helper
 {
@@ -19,10 +20,8 @@ namespace Kitchen_helper
         private void fillIngredientChecklist()
         {
             DataBase dataBase = new DataBase();
-            SQLiteCommand command = new SQLiteCommand("SELECT Name FROM Ingredient", dataBase.getConnection());
-            SQLiteDataReader reader;
             dataBase.openConnention();
-            reader = command.ExecuteReader();
+            SQLiteDataReader reader = dataBase.readFromDatabase("Name", "Ingredient");
             if (reader.HasRows)
             {
                 while (reader.Read())
@@ -34,5 +33,9 @@ namespace Kitchen_helper
             dataBase.closeConnention();
         }
 
+        private void goNextButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -49,6 +49,7 @@
             goNextButton.TabIndex = 1;
             goNextButton.Text = "Next";
             goNextButton.UseVisualStyleBackColor = true;
+            goNextButton.Click += goNextButton_Click;
             // 
             // Form1
             // 
