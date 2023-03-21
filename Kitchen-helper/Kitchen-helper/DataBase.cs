@@ -35,6 +35,13 @@ namespace Kitchen_helper
             return reader;
 
         }
+        public SQLiteDataReader readFromDatabase(string column, string table, string condition)
+        {
+            SQLiteDataReader reader;
+            SQLiteCommand command = new SQLiteCommand("SELECT " + column + " FROM " + table + " WHERE " + condition, connection);
+            reader = command.ExecuteReader();
+            return reader;
 
+        }
     }
 }
