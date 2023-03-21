@@ -58,6 +58,8 @@
             ClientSize = new Size(800, 450);
             Controls.Add(goNextButton);
             Controls.Add(ingredientsList);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);

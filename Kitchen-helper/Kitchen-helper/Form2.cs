@@ -26,20 +26,20 @@ namespace Kitchen_helper
 
             foreach (object itemChecked in usedIngredients)
             {
-                SQLiteDataReader ingredientIdReader = dataBase.readFromDatabase("ID", "Ingredient", "name = " + "\"" +itemChecked.ToString()+ "\"");
+                SQLiteDataReader ingredientIdReader = dataBase.readFromDatabase("ID", "Ingredient", "name = " + "\"" + itemChecked.ToString() + "\"");
                 SQLiteDataReader recipestIdReader;
 
                 if (ingredientIdReader.HasRows)
                 {
                     while (ingredientIdReader.Read())
                     {
-                        recipestIdReader = dataBase.readFromDatabase("Recipe_id", "Recipe_details", "Ingredient_id = " + "\"" + ingredientIdReader["ID"]+ "\"");
+                        recipestIdReader = dataBase.readFromDatabase("Recipe_id", "Recipe_details", "Ingredient_id = " + "\"" + ingredientIdReader["ID"] + "\"");
 
-                        if(recipestIdReader.HasRows)
+                        if (recipestIdReader.HasRows)
                         {
                             while (recipestIdReader.Read())
                             {
-                                if(!uniqueRecipesIdList.Contains(recipestIdReader["Recipe_id"]))
+                                if (!uniqueRecipesIdList.Contains(recipestIdReader["Recipe_id"]))
                                 {
                                     uniqueRecipesIdList.Add(recipestIdReader["Recipe_id"]);
                                 }
@@ -47,9 +47,9 @@ namespace Kitchen_helper
                         }
                     }
                 }
-                
+
             }
-            foreach(object recipe_id in uniqueRecipesIdList)
+            foreach (object recipe_id in uniqueRecipesIdList)
             {
                 SQLiteDataReader recipeReader;
                 recipeReader = dataBase.readFromDatabase("Name", "Recipe", "ID = " + "\"" + recipe_id.ToString() + "\"");
@@ -63,15 +63,15 @@ namespace Kitchen_helper
                     }
                 }
 
-               recipeReader = dataBase.readFromDatabase("Ingredient_id, Ammount", "Recipe_details", "Recipe_id = " + "\"" + recipe_id.ToString() + "\"");
+                recipeReader = dataBase.readFromDatabase("Ingredient_id, Ammount", "Recipe_details", "Recipe_id = " + "\"" + recipe_id.ToString() + "\"");
                 if (recipeReader.HasRows)
                 {
                     while (recipeReader.Read())
                     {
                         SQLiteDataReader ingredientReader = dataBase.readFromDatabase("Name", "Ingredient", "ID = " + "\"" + recipeReader["Ingredient_id"] + "\"");
-                        if(ingredientReader.HasRows)
+                        if (ingredientReader.HasRows)
                         {
-                            while(ingredientReader.Read())
+                            while (ingredientReader.Read())
                             {
                                 richTextBox1.Text += ingredientReader["Name"];
                             }
@@ -100,7 +100,12 @@ namespace Kitchen_helper
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-       
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -35,6 +35,7 @@
             // 
             richTextBox1.Location = new Point(12, 12);
             richTextBox1.Name = "richTextBox1";
+            richTextBox1.ReadOnly = true;
             richTextBox1.Size = new Size(797, 438);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
@@ -45,8 +46,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(821, 462);
             Controls.Add(richTextBox1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "Form2";
             Text = "Form2";
+            Load += Form2_Load;
             ResumeLayout(false);
         }
 
